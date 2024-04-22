@@ -1,13 +1,15 @@
 "use client"
 import { projectsData } from "@/lib/data"
 import { motion, useScroll, useTransform } from "framer-motion"
+import { Code, Code2 } from "lucide-react"
 import Image from "next/image"
 import { useRef } from "react"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip"
 
 type ProjectProps = (typeof projectsData)[number]
 
 
-export default function Project({title, description, tags, imageUrl}: ProjectProps) {
+export default function Project({title, description, tags, imageUrl, repoLink}: ProjectProps) {
     const ref = useRef<HTMLDivElement>(null)
     const { scrollYProgress } = useScroll({target: ref, offset: ["0 1", "1.33 1"]})
     const scaleProgress = useTransform(scrollYProgress, [0,1], [0.8, 1])
@@ -51,7 +53,26 @@ export default function Project({title, description, tags, imageUrl}: ProjectPro
           group-even:group-hover:rotate-2
   
           group-even:right-[initial] group-even:-left-40"
-          />
+          >
+          </Image>
+          <div 
+            className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-sm font-semibold opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+             rel="noopener noreferrer">
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger className="mt-6 ">
+                    <a href={repoLink} target="_blank" className="-m-4 hover:text-white/35">
+                      <div className="border rounded-full border-white hover:border-white/40">
+                        <Code2 className="m-4" />
+                      </div>
+                    </a>
+                  </TooltipTrigger>
+                  <TooltipContent className="bg-white text-black dark:bg-gray-800 dark:text-white">
+                    <p>Visit Repository</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+          </div>
         </section>
       </motion.div>
     )

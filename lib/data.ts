@@ -67,6 +67,7 @@ export const projectsData = [
       "I worked as a full-stack developer on this final course project for 2 weeks. Users can upload public lists for real estate businnes.",
     tags: ["React", "Vite.js", "MongoDB", "Tailwind", "Redux Toolkit", "Express"],
     imageUrl: SouthEstate,
+    repoLink: "https://github.com/NihadAI/mern-estate"
   },
   {
     title: "Akademi",
@@ -74,6 +75,7 @@ export const projectsData = [
       "School dashboard project. I was the front-end developer. It has features like filtering, dark mode, sorting, CRUD operatins and pagination.",
     tags: ["React", "TypeScript", "Vite.js", "Tailwind", "Redux Toolkit"],
     imageUrl: Akademi,
+    repoLink: "https://github.com/NihadAI/Akademi"
   },
   {
     title: "Digit Hippo",
@@ -81,6 +83,7 @@ export const projectsData = [
       "A public web app for UI Kit and Icon commerce. Contains features like verification and receipt emails and admin dashboard .",
     tags: ["React", "Next.js", "TRPC", "Tailwind", "Zustand"],
     imageUrl: DigitHippo,
+    repoLink: "https://github.com/NihadAI/DigitHippo"
   },
 ] as const;
 
